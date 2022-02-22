@@ -33,7 +33,7 @@
     <div class="main">
         <div class="card">
             <h1>Update NoteBoard</h1>
-            <textarea name="message" id="" cols="10" rows="6" id="message" style="width: 100%; " ></textarea>
+            <textarea name="message" cols="10" rows="6" id="message" style="width: 100%; " ></textarea>
             <button id="Send" style="padding: 5px; margin-top: 5px; background-color:rgb(126, 151, 223); color: white; font-size: medium; font-weight: bolder; border-radius: 10px;"> Update Board</button>
         </div>
        
@@ -46,8 +46,8 @@
 
     <script>
         var socket = io()
-       document.getElementById("Send").addEventListener("click",()=>{
-          let text= document.getElementById("message").value;
+       document.getElementById("Send").addEventListener("click",()=>{         
+          let text = document.getElementById("message").value;
           socket.emit("message",text);
        })
     </script>
