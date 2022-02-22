@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Board</title>
+    <style>
+        .main {
+            background-color: rgb(148, 109, 91);
+            max-width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .notice {
+            width: 60%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border-style: dashed;
+
+        }
+
+        h1 {
+            text-decoration: underline;
+            font-size: x-large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-style: oblique;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="notice">
+            <h1>Notice Board</h1>
+            <div style="margin-top: 50px;">
+                <p class="noticeText" id="noticeText">
+                    sample contet
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // By default automatic connect
+        var socket = io();
+        socket.on('boardContent', (msg) => {
+            document.getElementById("noticeText").innerHTML = msg
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <style>
+        .main{
+            max-width: 100%;
+            height: 100vh;
+            background-color: bisque;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .card{
+            width: 50%;
+            height: 70%;
+            background-color: rgb(224, 134, 24);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+   
+</head>
+<body>
+    <div class="main">
+        <div class="card">
+            <h1>Update NoteBoard</h1>
+            <textarea name="message" id="" cols="10" rows="6" id="message" style="width: 100%; " ></textarea>
+            <button id="Send" style="padding: 5px; margin-top: 5px; background-color:rgb(126, 151, 223); color: white; font-size: medium; font-weight: bolder; border-radius: 10px;"> Update Board</button>
+        </div>
+       
+    </div>
+   
+
+
+    
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        var socket = io()
+       document.getElementById("Send").addEventListener("click",()=>{
+          let text= document.getElementById("message").value;
+          socket.emit("message",text);
+       })
+    </script>
+</body>
+</html>
